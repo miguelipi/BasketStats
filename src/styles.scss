@@ -1,0 +1,52 @@
+/* You can add global styles to this file, and also import other style files */
+@use 'variables' as *;
+
+@font-face {
+    font-family: 'Inter';
+    src: url(/fonts/Inter-VariableFont_opsz_wght.woff) format('woff'),
+}
+
+* {
+    background-color: $fondo;
+    color: $texto;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+}
+
+nav {
+    border-bottom: solid 1px $iconos;
+    .container {
+        padding: 10px 0;
+        width: 80%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-around;
+
+        .logo {
+            width: 50%;
+
+            img {
+                width: 18%;
+            }
+        }
+
+        .menu {
+            display: flex;
+            width: 50%;
+            align-items: center;
+            justify-content: end;
+            a {
+                text-decoration: none;
+                font-size: 1.2rem;
+                padding: 0.5rem 1rem;
+                margin: 0 5px;
+                border-radius: 5px;
+
+                &:hover {
+                    background-color: $boton2-hover;
+                }
+            }
+        }
+    }
+}
+

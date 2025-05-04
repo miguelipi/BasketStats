@@ -1,0 +1,141 @@
+@use '../../../variables' as *;
+
+.container{
+    width: 70%;
+    margin: 30px auto;
+    .introduccion{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        .texto{
+            width: 60%;
+            h1{
+                font-size: 2.5rem;
+                margin-bottom: 20px;
+                color: $iconos;
+            }
+            p{
+                font-size: 1.1rem;
+                margin-bottom: 20px;
+            }
+            .imagen{
+                width: 40%;
+                img{
+                    width: 70%;
+                }
+            }
+        }
+    }
+    .cards{
+        margin-top: 50px;
+        display: flex;
+        justify-content: space-around;
+        .card{
+            text-align: center;
+            width: 20%;
+            margin: 0 10px;
+            padding: 20px;
+            background-color: $fondo2;
+            border-radius: 10px;
+            border: solid 1px $iconos;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
+            &:hover{
+                transform: scale(1.03);
+            }
+            img{
+                width: 100%;
+                height: 200px;
+                border-radius: 10px;
+                margin-bottom: 20px;
+            };
+            a{  height: 10%;
+                background-color: $texto;
+                border-radius: 10px;
+                padding: 10px 15px ;
+                text-decoration: none;
+                color: white;
+                &:hover{
+                    background-color: $boton-hover;
+                }
+            };
+        }
+    }
+    .whois{
+        margin-top: 50px;
+        h1{
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: $iconos;
+        }
+        p{
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+    }
+    .partidoaleatorio{
+        border-radius: 10px;
+        border: solid 1px $iconos;
+        margin-top: 50px;
+        display: flex;
+        align-items: center;
+        .resultado{
+            width: 35%;
+            margin-left: 40px;
+            padding: 20px 0;
+            .equipos{
+                display: flex;
+                align-items: center;
+                margin-top: 20px;
+                .cajaNombre{
+                    width: 80%;
+                    .cajaCode{
+                        display: flex;
+                        align-items: center;
+                        img{
+                            width: 80px;
+                        }
+                        .code{
+                            font-size: 1.5rem;
+                            margin-left: 50px;
+                        }
+                    }
+                    .nombre{
+                        font-size: 1.5rem;
+                        margin-top: 10px;
+                        margin-bottom: 20px;
+                    }
+                }
+                .puntos{
+                    color: $iconos;
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
+    .estadisticas{
+        height: 100%;
+        display: flex;
+    }
+    .loader-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 2rem 0;
+      }
+      
+      .spinner {
+        border: 6px solid #f3f3f3;
+        border-top: 6px solid #3498db;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+        margin-bottom: 1rem;
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+}

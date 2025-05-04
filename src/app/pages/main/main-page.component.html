@@ -1,0 +1,84 @@
+<div class="container">
+    <div class="introduccion">
+        <div class="texto">
+            <h1>¡Bienvenido a BasketStats!</h1>
+            <p>Descubre todo sobre el baloncesto en un solo lugar.<br> Con BasketStats puedes: <br>
+                🔎 Buscar jugadores y explorar sus estadísticas completas. <br>
+                🏆 Ver todos los equipos y sus datos actualizados.<br>
+                📊 Consultar estadísticas de temporadas específicas.<br>
+                🆚 Comparar equipos y sus rendimientos en cada partido.<br>
+                🎯 ¡Jugar a adivinar jugadores y poner a prueba tus conocimientos!<br>
+                ¡Empieza a vivir la pasión del baloncesto como nunca antes!
+            </p>
+        </div>
+        <div class="imagen">
+            <img src="/img/gasol.jpg" alt="">
+        </div>
+    </div>
+
+    <div *ngIf="isLoading" class="loader-container">
+        <div class="spinner"></div>
+        <p>Cargando partido aleatorio...</p>
+    </div>
+
+    <div class="partidoaleatorio" *ngIf="!isLoading && equipoLocal && equipoVisitante">
+        <div class="resultado">
+          <div class="equipos">
+            <div class="cajaNombre">
+              <div class="cajaCode">
+                <img [src]="equipoLocal.team?.logo" alt="">
+                <div class="code">{{ equipoLocal.team?.code }}</div>
+              </div>
+              <div class="nombre">{{ equipoLocal.team?.name }}</div>
+            </div>
+            <strong class="puntos">{{ equipoLocal.points }}</strong>
+          </div>
+          <div class="equipos">
+            <div class="cajaNombre">
+              <div class="cajaCode">
+                <img [src]="equipoVisitante.team?.logo" alt="">
+                <div class="code">{{ equipoVisitante.team?.code }}</div>
+              </div>
+              <div class="nombre">{{ equipoVisitante.team?.name }}</div>
+            </div>
+            <strong class="puntos">{{ equipoVisitante.points }}</strong>
+          </div>
+        </div>
+      
+        <div class="estadisticas">
+            <div><canvas #tripleChart></canvas></div>
+            <div><canvas #reboteChart></canvas></div>
+        </div>
+      </div>
+      
+
+    <div class="cards">
+        <div class="card">
+            <img src="/img/jugadores.jpeg" alt="">
+            <a href="/jugadores">JUGADORES</a>
+        </div>
+        <div class="card">
+            <img src="/img/equipos.png" alt="">
+            <a href="/equipos">EQUIPOS</a>
+        </div>
+        <div class="card">
+            <img src="/img/resultados.jpg" alt="">
+            <a href="/partidos">PARTIDOS</a>
+        </div>
+    </div>
+
+    <div class="whois">
+        <h1>Who Is?</h1>
+        <p>¡Pon a prueba tus conocimientos de baloncesto con nuestro desafío de adivinanza!<br>
+            Recibirás pistas sobre un jugador<br>
+            — como su posición, altura, equipo, estadísticas o logros — <br>
+            y tendrás que descubrir de quién se trata.
+        </p>
+        <div class="cards">
+            <div class="card">
+                <img src="/img/jugadorns.png" alt="">
+                <a href="/whois">Who Is?</a>
+            </div>
+        </div>
+    </div>
+</div>
