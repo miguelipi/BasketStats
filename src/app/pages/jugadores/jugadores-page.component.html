@@ -8,7 +8,7 @@
           </option>
         </select>
   
-        <select [(ngModel)]="selectedSeason" (change)="buscarJugadores()">
+        <select [(ngModel)]="selectedSeason" (change)="buscarJugadores()" id="season">
           <option value="">Season</option>
           <option *ngFor="let season of seasons" [value]="season">
             {{ season }}
@@ -19,13 +19,15 @@
       <div class="buscador">
         <input
           type="text"
-          placeholder="Buscar Jugador"
+          placeholder="Buscar jugador por apellido"
           [(ngModel)]="searchTerm"
           (input)="buscarJugadores()"
         />
       </div>
     </div>
-    
+    <div *ngIf="mostrarMensajeSeleccion" class="mensaje-seleccion">
+        <p>Por favor, selecciona un equipo y una temporada para ver los jugadores.</p>
+    </div>
     <div class="jugadores">
       <div
         class="jugador"

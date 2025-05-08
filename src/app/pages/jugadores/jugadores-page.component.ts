@@ -13,7 +13,8 @@ export class JugadoresPageComponent implements OnInit {
     equipos: any[] = [];
     seasons: number[] = [];
     jugadores: any[] = [];
-
+    mostrarMensajeSeleccion: boolean = false;
+    
     selectedEquipo = '';
     selectedSeason = '';
     searchTerm = '';
@@ -42,15 +43,24 @@ export class JugadoresPageComponent implements OnInit {
         this.buscarJugadores();
     }
 
+    
     buscarJugadores(): void {
+        if (!this.selectedEquipo || !this.selectedSeason) {
+          this.mostrarMensajeSeleccion = true;
+          this.jugadores = [];
+          return;
+        }
+      
+        this.mostrarMensajeSeleccion = false;
+      
         this.jugadoresService.getJugadores({
-            team: this.selectedEquipo,
-            season: this.selectedSeason,
-            search: this.searchTerm,
+          team: this.selectedEquipo,
+          season: this.selectedSeason,
+          search: this.searchTerm,
         }).subscribe(data => {
-            this.jugadores = data.response;
+          this.jugadores = data.response || [];
         });
-    }
+      }
 
     seleccionarJugador(id: number): void {
         this.jugadoresService.getJugadorPorId(id).subscribe(data => {
