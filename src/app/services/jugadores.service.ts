@@ -35,6 +35,10 @@ export class JugadoresService {
   }
 
   getJugadorPorId(id: number): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}/player?id=${id}`, { headers: this.headers });
+    return this.http.get<any>(`${this.baseUrl}/players?id=${id}`, { headers: this.headers });
+  }
+
+  getEquipoPorId(id: number): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/teams?id=${id}`, { headers: this.headers });
   }
 }

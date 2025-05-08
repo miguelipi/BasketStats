@@ -4,62 +4,72 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  standalone: true,
-  templateUrl: './jugadores-page.component.html',
-  styleUrls: ['./jugadores-page.component.scss'],
-  imports: [FormsModule, CommonModule]
+    standalone: true,
+    templateUrl: './jugadores-page.component.html',
+    styleUrls: ['./jugadores-page.component.scss'],
+    imports: [FormsModule, CommonModule]
 })
 export class JugadoresPageComponent implements OnInit {
-  equipos: any[] = [];
-  seasons: number[] = [];
-  jugadores: any[] = [];
+    equipos: any[] = [];
+    seasons: number[] = [];
+    jugadores: any[] = [];
 
-  selectedEquipo = '';
-  selectedSeason = '';
-  searchTerm = '';
+    selectedEquipo = '';
+    selectedSeason = '';
+    searchTerm = '';
 
-  jugadorSeleccionado: any = null;
-  showModal = false;
+    equipoSeleccionado: any = null;
+    jugadorSeleccionado: any = null;
+    showModal = false;
 
-  constructor(private jugadoresService: JugadoresService) {}
+    constructor(private jugadoresService: JugadoresService) { }
 
-  ngOnInit(): void {
-    this.cargarFiltros();
-  }
+    ngOnInit(): void {
+        this.cargarFiltros();
+    }
 
-  cargarFiltros(): void {
-    this.jugadoresService.getEquipos().subscribe(data => {
-        console.log('Equipos cargados:', data);
-      this.equipos = data.response;
-    });
+    cargarFiltros(): void {
+        this.jugadoresService.getEquipos().subscribe(data => {
+            console.log('Equipos cargados:', data);
+            this.equipos = data.response;
+        });
 
-    this.jugadoresService.getSeasons().subscribe(data => {
-        console.log('Seasons cargados:', data);
-      this.seasons = data.response;
-    });
+        this.jugadoresService.getSeasons().subscribe(data => {
+            console.log('Seasons cargados:', data);
+            this.seasons = data.response;
+        });
 
-    this.buscarJugadores();
-  }
+        this.buscarJugadores();
+    }
 
-  buscarJugadores(): void {
-    this.jugadoresService.getJugadores({
-      team: this.selectedEquipo,
-      season: this.selectedSeason,
-      search: this.searchTerm,
-    }).subscribe(data => {
-      this.jugadores = data.response;
-    });
-  }
+    buscarJugadores(): void {
+        this.jugadoresService.getJugadores({
+            team: this.selectedEquipo,
+            season: this.selectedSeason,
+            search: this.searchTerm,
+        }).subscribe(data => {
+            this.jugadores = data.response;
+        });
+    }
 
-  seleccionarJugador(id: number): void {
-    this.jugadoresService.getJugadorPorId(id).subscribe(data => {
-      this.jugadorSeleccionado = data.response;
-      this.showModal = true;
-    });
-  }
+    seleccionarJugador(id: number): void {
+        this.jugadoresService.getJugadorPorId(id).subscribe(data => {
+            this.jugadorSeleccionado = data.response;
 
-  cerrarModal(): void {
-    this.showModal = false;
-    this.jugadorSeleccionado = null;
-  }
+            console.log('Jugador seleccionado:', this.jugadorSeleccionado);
+
+            this.jugadoresService.getEquipoPorId(Number(this.selectedEquipo)).subscribe(data => {
+                this.equipoSeleccionado = data.response[0];
+
+                console.log('Equipo seleccionado:', this.equipoSeleccionado);
+
+                this.showModal = true;
+            });
+        });
+    }
+
+    cerrarModal(): void {
+        this.showModal = false;
+        this.jugadorSeleccionado = null;
+    }
 }

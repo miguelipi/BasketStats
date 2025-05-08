@@ -49,4 +49,12 @@ nav {
         }
     }
 }
-
+footer{
+    text-align: center;
+    font-size: 2rem;
+    border-top: solid 1px $iconos;
+    span{
+        font-size: 1.5rem;
+        color: $iconos;
+    }
+}
