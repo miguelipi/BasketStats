@@ -1,1 +1,51 @@
-<h1>Jugadores</h1>
+<div class="container">
+    <div class="filtros">
+      <div class="desplegables">
+        <select [(ngModel)]="selectedEquipo" (change)="buscarJugadores()">
+          <option value="">Equipo</option>
+          <option *ngFor="let equipo of equipos" [value]="equipo.id">
+            {{ equipo.name }}
+          </option>
+        </select>
+  
+        <select [(ngModel)]="selectedSeason" (change)="buscarJugadores()">
+          <option value="">Season</option>
+          <option *ngFor="let season of seasons" [value]="season">
+            {{ season }}
+          </option>
+        </select>
+      </div>
+  
+      <div class="buscador">
+        <input
+          type="text"
+          placeholder="Buscar Jugador"
+          [(ngModel)]="searchTerm"
+          (input)="buscarJugadores()"
+        />
+      </div>
+    </div>
+    
+    <div class="jugadores">
+      <div
+        class="jugador"
+        *ngFor="let jugador of jugadores"
+        (click)="seleccionarJugador(jugador.id)"
+      >
+        <img [src]="jugador.image || '/img/jugadorns.png'" alt="" />
+        <p>{{ jugador.firstname }} {{jugador.lastname}}</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal -->
+  <div class="modal" *ngIf="showModal">
+    <div class="modal-content">
+      <span class="close" (click)="cerrarModal()">&times;</span>
+      <h2>{{ jugadorSeleccionado?.name }}</h2>
+      <p>Posición: {{ jugadorSeleccionado?.position }}</p>
+      <p>Equipo: {{ jugadorSeleccionado?.team?.name || 'N/A' }}</p>
+      <img [src]="jugadorSeleccionado?.image || '/img/jugadorns.png'" alt="" />
+    </div>
+  </div>
+  

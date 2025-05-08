@@ -1,0 +1,66 @@
+@use '../../../variables' as *;
+.container{
+    width: 65%;
+    margin: 100px auto 20px;
+    .filtros{
+        display: flex;
+        margin-bottom: 50px;
+        justify-content: space-between;
+        .desplegables{
+            select{
+                width: 300px;
+                height: 40px;
+                border-radius: 5px;
+                border: 1px solid $iconos;
+                padding: 5px;
+                font-size: 16px;
+                margin-right: 20px;
+            }
+            #seasons{
+                width: 150px;
+            }
+        }
+        .buscador{
+            input{
+                width: 300px;
+                height: 30px;
+                border-radius: 5px;
+                border: 1px solid $iconos;
+                padding: 5px;
+                font-size: 16px;
+            }
+        }
+    }
+    .jugadores{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        .jugador{
+            width: 25%;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: $fondo2;
+            border-radius: 10px;
+            border: solid 1px $iconos;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
+            text-align: center;
+            &:hover{
+                transform: scale(1.03);
+            }
+            img{
+                width: 90%;
+                height: 200px;
+                border-radius: 10px;
+                margin-bottom: 10px;
+                margin-top: 10px
+                
+            };
+            p{
+                font-size: 1.2rem;
+                margin-bottom: 10px;
+                background-color: $fondo2;
+            }
+        }
+    }
+}

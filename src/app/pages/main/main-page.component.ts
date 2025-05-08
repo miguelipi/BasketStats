@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ViewChild, ElementRef  } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef  } from '@angular/core';
 import { PartidoService } from '../../services/partido.service';
 import { CommonModule } from '@angular/common';
 import { Chart } from 'chart.js/auto';
