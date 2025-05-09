@@ -1,53 +1,59 @@
 <div class="container">
-    <div class="filtros">
-      <div class="desplegables">
-        <select [(ngModel)]="selectedEquipo" (change)="buscarJugadores()">
-          <option value="">Equipo</option>
-          <option *ngFor="let equipo of equipos" [value]="equipo.id">
-            {{ equipo.name }}
-          </option>
-        </select>
-  
-        <select [(ngModel)]="selectedSeason" (change)="buscarJugadores()" id="season">
-          <option value="">Season</option>
-          <option *ngFor="let season of seasons" [value]="season">
-            {{ season }}
-          </option>
-        </select>
-      </div>
-  
-      <div class="buscador">
-        <input
-          type="text"
-          placeholder="Buscar jugador por apellido"
-          [(ngModel)]="searchTerm"
-          (input)="buscarJugadores()"
-        />
-      </div>
+  <div class="filtros">
+    <div class="desplegables">
+      <select [(ngModel)]="selectedEquipo" (change)="buscarJugadores()">
+        <option value="">Equipo</option>
+        <option *ngFor="let equipo of equipos" [value]="equipo.id">
+          {{ equipo.name }}
+        </option>
+      </select>
+
+      <select [(ngModel)]="selectedSeason" (change)="buscarJugadores()" id="season">
+        <option value="">Season</option>
+        <option *ngFor="let season of seasons" [value]="season">
+          {{ season }}
+        </option>
+      </select>
     </div>
-    <div *ngIf="mostrarMensajeSeleccion" class="mensaje-seleccion">
-        <p>Por favor, selecciona un equipo y una temporada para ver los jugadores.</p>
-    </div>
-    <div class="jugadores">
-      <div
-        class="jugador"
-        *ngFor="let jugador of jugadores"
-        (click)="seleccionarJugador(jugador.id)"
-      >
-        <img [src]="jugador.image || '/img/jugadorns.png'" alt="" />
-        <p>{{ jugador.firstname }} {{jugador.lastname}}</p>
-      </div>
+
+    <div class="buscador">
+      <input type="text" placeholder="Buscar jugador por apellido" [(ngModel)]="searchTerm"
+        (input)="buscarJugadores()" />
     </div>
   </div>
-  
+  <div *ngIf="mostrarMensajeSeleccion" class="mensaje-seleccion">
+    <p>Por favor, selecciona un equipo y una temporada para ver los jugadores.</p>
+  </div>
+  <div class="jugadores">
+    <div class="jugador" *ngFor="let jugador of jugadores" (click)="seleccionarJugador(jugador.id, jugador.image)">
+      <img [src]="jugador.image || '/img/jugadorns.png'" alt="" />
+      <p>{{ jugador.firstname }} {{jugador.lastname}}</p>
+    </div>
+  </div>
+
   <!-- Modal -->
-  <div class="modal" *ngIf="showModal">
-    <div class="modal-content">
-      <span class="close" (click)="cerrarModal()">&times;</span>
-      <h2>{{ jugadorSeleccionado?.name }}</h2>
-      <p>Posición: {{ jugadorSeleccionado?.position }}</p>
-      <p>Equipo: {{ jugadorSeleccionado?.team?.name || 'N/A' }}</p>
-      <img [src]="jugadorSeleccionado?.image || '/img/jugadorns.png'" alt="" />
+  <div class="modal" *ngIf="showModal" (click)="cerrarModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <div class="nombre">
+        <img [src]="jugadorSeleccionado?.image || '/img/jugadorns.png'" alt="" />
+        <h2>{{ jugadorSeleccionado?.firstname }} {{jugadorSeleccionado?.lastname}}</h2>
+      </div>
+      <div class="datos">
+        <div class="dobleP">
+          <p>PAIS: <span> {{jugadorSeleccionado?.birth.country || 'No hay datos' }} </span></p>
+          <p>POS: <span> {{ jugadorSeleccionado?.leagues.standard.pos || 'No hay datos' }} </span></p>
+        </div>
+        <p>EDAD: <span> {{jugadorSeleccionado?.birth.date || 'No hay datos' }} </span></p>
+        <p>ALTURA: <span>{{ jugadorSeleccionado?.height?.meters ? jugadorSeleccionado.height.meters + ' m' : 'No hay
+            datos' }}</span></p>
+        <p>PESO: <span>{{ jugadorSeleccionado?.weight?.kilograms ? jugadorSeleccionado.weight.kilograms + ' kg' : 'No
+            hay datos' }}</span></p>
+        <p>COLLEGE: <span> {{ jugadorSeleccionado?.college || 'No hay datos' }} </span></p>
+      </div>
+      <div class="equipo">
+        <img [src]="equipoSeleccionado?.logo" alt="">
+        <p>{{ equipoSeleccionado?.name }}</p>
+      </div>
     </div>
   </div>
-  
+</div>
