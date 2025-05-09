@@ -13,48 +13,69 @@
     font-weight: bold;
 }
 
-nav {
-    border-bottom: solid 1px $iconos;
-    .container {
-        padding: 10px 0;
-        width: 80%;
-        margin: 0 auto;
+html,
+body {
+    .main-container {
         display: flex;
-        justify-content: space-around;
+        flex-direction: column;
+        min-height: 100vh;
 
-        .logo {
-            width: 50%;
+        nav {
+            border-bottom: solid 1px $iconos;
 
-            img {
-                width: 18%;
-            }
-        }
+            .container {
+                padding: 10px 0;
+                width: 80%;
+                margin: 0 auto;
+                display: flex;
+                justify-content: space-around;
 
-        .menu {
-            display: flex;
-            width: 50%;
-            align-items: center;
-            justify-content: end;
-            a {
-                text-decoration: none;
-                font-size: 1.2rem;
-                padding: 0.5rem 1rem;
-                margin: 0 5px;
-                border-radius: 5px;
+                .logo {
+                    width: 50%;
 
-                &:hover {
-                    background-color: $boton2-hover;
+                    img {
+                        width: 18%;
+                    }
+                }
+
+                .menu {
+                    display: flex;
+                    width: 50%;
+                    align-items: center;
+                    justify-content: end;
+
+                    a {
+                        text-decoration: none;
+                        font-size: 1.2rem;
+                        padding: 0.5rem 1rem;
+                        margin: 0 5px;
+                        border-radius: 5px;
+
+                        &:hover {
+                            background-color: $boton2-hover;
+                        }
+                    }
                 }
             }
         }
-    }
-}
-footer{
-    text-align: center;
-    font-size: 2rem;
-    border-top: solid 1px $iconos;
-    span{
-        font-size: 1.5rem;
-        color: $iconos;
+
+        router-outlet {
+            flex:1;
+        }
+
+        ng-component{
+            flex: 2;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 2rem;
+            border-top: solid 1px $iconos;
+
+            span {
+                font-size: 1.5rem;
+                color: $iconos;
+            }
+        }
     }
 }
