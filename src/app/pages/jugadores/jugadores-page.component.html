@@ -4,7 +4,7 @@
       <select [(ngModel)]="selectedEquipo" (change)="buscarJugadores()">
         <option value="">Equipo</option>
         <option *ngFor="let equipo of equipos" [value]="equipo.id">
-          {{ equipo.name }}
+          {{ equipo.name || equipo.nickname }}
         </option>
       </select>
 
