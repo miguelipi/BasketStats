@@ -1,0 +1,87 @@
+@use '../../../variables' as *;
+
+.container {
+    width: 65%;
+    margin: 100px auto 20px;
+
+    .filtros {
+        display: flex;
+        margin-bottom: 50px;
+
+        select {
+            width: 200px;
+            height: 40px;
+            border-radius: 5px;
+            border: 1px solid $iconos;
+            padding: 5px;
+            font-size: 16px;
+            margin-right: 20px;
+        }
+
+        #season {
+            width: 100px;
+        }
+
+    }
+
+    .equipos {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+        .equipo {
+            width: 25%;
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: $fondo2;
+            border-radius: 10px;
+            border: solid 1px $iconos;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+
+            a {
+                text-decoration: none;
+                color: $iconos;
+                background-color: $fondo2;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                img {
+                    width: 90%;
+                    height: 200px;
+                    border-radius: 10px;
+                    background-color: $fondo2;
+                    margin-bottom: 10px;
+                    margin: 10px auto;
+                    object-fit: contain;
+                    object-position: top;
+                }
+
+                p {
+                    font-size: 1.5rem;
+                    text-align: center;
+                    margin-bottom: 20px;
+                    background-color: $fondo2;
+                }
+            }
+
+            &:hover {
+                transform: scale(1.05);
+            }
+
+        }
+    }
+
+    .paginacion {
+        width: 21.1%;
+        margin: 50px auto;
+
+        button {
+            border: 1px solid $iconos;
+            border-radius: 5px;
+            padding: 5px 10px;
+            margin: 10px;
+            font-size: 1.2rem;
+        }
+    }
+}

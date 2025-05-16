@@ -1,1 +1,41 @@
-<h1>Equipos</h1>
+<div class="container">
+    <div class="filtros">
+        <!-- Filtros existentes -->
+        <select [(ngModel)]="selectedConferencia" (ngModelChange)="onConferenciaChange()">
+            <option value="">Conferencia</option>
+            <option value="East">East</option>
+            <option value="West">West</option>
+        </select>
+
+        <select [(ngModel)]="selectedDivision">
+            <option value="">División</option>
+            <option *ngFor="let division of filteredDivisions" [value]="division">
+                {{ division }}
+            </option>
+        </select>
+
+        <select [(ngModel)]="selectedSeason" id="season">
+            <option value="">Season</option>
+            <option *ngFor="let season of seasons" [value]="season">
+                {{ season }}
+            </option>
+        </select>
+    </div>
+
+    <!-- Lista de Equipos -->
+    <div class="equipos">
+        <div class="equipo" *ngFor="let equipo of pagedEquipos">
+            <a href="#">
+                <img [src]="equipo.logo || '/img/equipons.png'" alt="{{ equipo.name }}">
+                <p>{{ equipo.name }}</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- Paginación -->
+    <div class="paginacion" *ngIf="filteredEquipos.length > 10">
+        <button (click)="prevPage()" [disabled]="currentPage === 1"><</button>
+        <span>Página {{ currentPage }} / {{ totalPages }}</span>
+        <button (click)="nextPage()" [disabled]="currentPage === totalPages">></button>
+    </div>
+</div>
