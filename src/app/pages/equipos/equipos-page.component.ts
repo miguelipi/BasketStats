@@ -2,19 +2,20 @@ import { CommonModule } from "@angular/common";
 import { Component, OnInit } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { EquiposService } from "../../services/equipos.service";
+import { RouterModule } from "@angular/router";
 
 @Component({
   templateUrl: './equipos-page.component.html',
   styleUrls: ['./equipos-page.component.scss'],
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule],
 })
 export class EquiposPageComponent implements OnInit {
 
   equipos: any[] = [];
   seasons: number[] = [];
 
-  selectedSeason: string = '';
+  selectedSeason: number = 2024;
   selectedConferencia: string = '';
   selectedDivision: string = '';
 

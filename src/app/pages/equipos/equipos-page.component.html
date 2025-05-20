@@ -25,7 +25,7 @@
     <!-- Lista de Equipos -->
     <div class="equipos">
         <div class="equipo" *ngFor="let equipo of pagedEquipos">
-            <a href="#">
+            <a [routerLink]="['/equipo']" [queryParams]="{ id: equipo.id, season: selectedSeason }">
                 <img [src]="equipo.logo || '/img/equipons.png'" alt="{{ equipo.name }}">
                 <p>{{ equipo.name }}</p>
             </a>
