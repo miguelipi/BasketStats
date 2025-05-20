@@ -1,0 +1,40 @@
+@use '../../../variables' as *;
+.container{
+    width: 65%;
+    margin: 0 auto;
+    .equipo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img{
+            width: 30%;
+            margin-right: 50px;
+            height: 100%;
+            border-radius: 10px;
+        }
+        .info{
+            p{
+                margin: 8px;
+                font-size: 1.5rem;
+                span{
+                    color: $iconos;
+                    margin-right: 10px;
+                }
+            }
+            .ligas{
+                display: flex;
+                align-items: center;
+                ul{
+                    display: flex;
+                    list-style-type: none;
+                    padding: 0;
+                    margin: 0;
+                    li{
+                        margin-right: 10px;
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+        }
+    }
+}

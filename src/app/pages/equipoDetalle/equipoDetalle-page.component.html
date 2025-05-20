@@ -1,1 +1,28 @@
-<h1>EquipoDetalle</h1>
+<div class="container">
+    <div class="equipo">
+        <img [src]="equipo.logo" alt="">
+        <div class="info">
+            <p><span>NOMBRE</span> {{ equipo.name }}</p>
+            <p><span>APODO</span> {{ equipo.nickname }}</p>
+            <p><span>CODE</span> {{ equipo.code }}</p>
+            <p><span>CIUDAD</span> {{ equipo.city }}</p>
+            <div class="ligas">
+                <p><span>LIGAS</span></p>
+                <ul>
+                    <li *ngFor="let liga of leagueKeys">
+                        {{ liga }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="stats">
+
+    </div>
+
+    <div class="plantilla">
+
+    </div>
+</div>
