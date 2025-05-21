@@ -3,6 +3,7 @@
     width: 65%;
     margin: 0 auto;
     .equipo{
+        margin: 50px 0;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -34,6 +35,29 @@
                         font-size: 1.5rem;
                     }
                 }
+            }
+        }
+    }
+    .estadisticas{
+        margin: 50px 0;
+        h1{
+            text-align: center;
+            margin: 20px 0;
+            color: $iconos;
+        }
+        .stats{
+            display: flex;
+            justify-content: center;
+            .texto{
+                margin-right: 5px;
+                text-align: right;
+                h2{
+                    color: $iconos;
+                }
+            }
+            .datos{
+                margin-left: 5px;
+                width: 30%;
             }
         }
     }

@@ -18,11 +18,37 @@
 
 
     </div>
-    <div class="stats">
-
+    <div class="estadisticas">
+        <h1>ESTADISTICAS DE LA TEMPORADA</h1>
+        <div class="stats">
+            <div class="texto">
+                <h2>PARTIDOS</h2>
+                <h2>PUNTOS</h2>
+                <h2>EFICACIA TIROS DE CAMPO</h2>
+                <h2>EFICACION TRIPLES</h2>
+                <h2>EFICACIA TIROS LIBRES</h2>
+                <h2>ASISTENCIAS</h2>
+                <h2>TOTAL DE REBOTES</h2>
+                <h2>PERDIDAS</h2>
+                <h2>BLOQUEOS</h2>
+                <h2>ROBOS</h2>
+            </div>
+            <div class="datos">
+                <h2>{{ stats.games }}</h2>
+                <h2>{{ stats.points }}</h2>
+                <h2>{{ stats.fgp }} %</h2>
+                <h2>{{ stats.tpp }} %</h2>
+                <h2>{{ stats.ftp }} %</h2>
+                <h2>{{ stats.assists }}</h2>
+                <h2>{{ stats.totReb }}</h2>
+                <h2>{{ stats.turnovers }}</h2>
+                <h2>{{ stats.blocks }}</h2>
+                <h2>{{ stats.steals }}</h2>
+            </div>
+        </div>
     </div>
 
     <div class="plantilla">
-
+        <h1>PLANTILLA DE {{ equipo.name | uppercase }} EN {{ season }}</h1>
     </div>
 </div>

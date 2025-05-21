@@ -33,20 +33,19 @@ export class EquipoDetallePageComponent implements OnInit {
             console.log('ID:', this.id);
             console.log('Season:', this.season);
 
-            // Llamar al servicio
             this.equipoDetalleService.getEquipoStats(this.id, this.season).subscribe(data => {
                 this.stats = data.response[0];
                 console.log('Stats:', this.stats);
 
-                this.equipoDetalleService.getEquipo(this.id).subscribe(data => {
-                    this.equipo = data.response[0];
-                    console.log('Equipo:', this.equipo);
-                });
+            });
+            this.equipoDetalleService.getEquipo(this.id).subscribe(data => {
+                this.equipo = data.response[0];
+                console.log('Equipo:', this.equipo);
+            });
 
-                this.equipoDetalleService.getJugadores(this.id, this.season).subscribe(data => {
-                    this.jugadores = data.response;
-                    console.log('Jugadores:', this.jugadores);
-                });
+            this.equipoDetalleService.getJugadores(this.id, this.season).subscribe(data => {
+                this.jugadores = data.response;
+                console.log('Jugadores:', this.jugadores);
             });
         });
     }
