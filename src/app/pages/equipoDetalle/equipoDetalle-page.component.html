@@ -48,7 +48,14 @@
         </div>
     </div>
 
-    <div class="plantilla">
-        <h1>PLANTILLA DE {{ equipo.name | uppercase }} EN {{ season }}</h1>
-    </div>
+        <div class="plantilla">
+            <h1>PLANTILLA DE {{ equipo.name | uppercase }} EN {{ season }}</h1>
+            <div class="jugadores">
+                <div class="jugador" *ngFor="let jugador of jugadores"
+                    (click)="seleccionarJugador(jugador.id, jugador.image)">
+                    <img [src]="jugador.image || '/img/jugadorns.png'" alt="" />
+                    <p>{{ jugador.firstname }} {{jugador.lastname}}</p>
+                </div>
+            </div>
+        </div>
 </div>
