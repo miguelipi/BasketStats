@@ -5,7 +5,7 @@ import { EquiposPageComponent } from './pages/equipos/equipos-page.component';
 import { PartidosPageComponent } from './pages/partidos/partidos-page.component';
 import { WhoisPageComponent } from './pages/whois/whois-page.component';
 import { EquipoDetallePageComponent } from './pages/equipoDetalle/equipoDetalle-page.component';
-
+import { PartidoDetallePageComponent } from './pages/partidoDetalle/partidoDetalle-page.component';
 
 export const routes: Routes = [
 
@@ -33,6 +33,10 @@ export const routes: Routes = [
     {
         path: 'equipo',
         component: EquipoDetallePageComponent
+    },
+    { 
+        path: 'partido',
+        component: PartidoDetallePageComponent
     },
 ];
 export const appRoutes = provideRouter(routes);

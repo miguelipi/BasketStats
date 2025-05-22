@@ -1,0 +1,107 @@
+@use "../../../variables" as *;
+
+.container {
+    width: 65%;
+    margin: 0 auto;
+
+    .desplegables {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        margin-top: 50px;
+
+        select {
+            width: 200px;
+            height: 40px;
+            border-radius: 5px;
+            border: 1px solid $iconos;
+            padding: 5px;
+            font-size: 16px;
+            margin-right: 20px;
+        }
+    }
+
+    .partidos {
+        display: flex;
+        flex-direction: column; // para que los partidos se apilen verticalmente
+        margin-top: 20px;
+        margin-bottom: 20px;
+
+        .partido {
+            margin-bottom: 1rem;
+
+            .partido-link {
+                display: flex;
+                text-decoration: none;
+                color: inherit;
+                border: 1px solid $iconos;
+                padding: 1rem;
+                border-radius: 8px;
+
+                &:hover {
+                    transform: scale(1.03);
+                }
+
+                .equipo1,
+                .equipo2 {
+                    display: flex;
+                    width: 48%;
+                    margin: 15px;
+                    align-items: center;
+
+                    img {
+                        width: 100px;
+                        height: 100%;
+                        object-fit: contain;
+                        object-position: top;
+                    }
+
+                    p {
+                        align-self: center;
+                        font-size: 1.5rem;
+
+                        span {
+                            margin: 0 50px;
+                            color: $texto2;
+                        }
+                    }
+                }
+
+                .equipo2 {
+                    flex-direction: row-reverse;
+
+                    p {
+                        margin-right: 25px;
+                    }
+                }
+
+                .equipo1 p {
+                    margin-left: 25px;
+                }
+
+                .separador {
+                    font-size: 2rem;
+                    align-self: center;
+
+                    p {
+                        color: $iconos;
+                    }
+                }
+            }
+        }
+    }
+
+
+    .paginacion {
+        width: 21.1%;
+        margin: 50px auto;
+
+        button {
+            border: 1px solid $iconos;
+            border-radius: 5px;
+            padding: 5px 10px;
+            margin: 10px;
+            font-size: 1.2rem;
+        }
+    }
+}

@@ -34,8 +34,8 @@
 
     <!-- Paginación -->
     <div class="paginacion" *ngIf="filteredEquipos.length > 10">
-        <button (click)="prevPage()" [disabled]="currentPage === 1"><</button>
+        <button (click)="prevPage()" [disabled]="currentPage === 1">&laquo;</button>
         <span>Página {{ currentPage }} / {{ totalPages }}</span>
-        <button (click)="nextPage()" [disabled]="currentPage === totalPages">></button>
+        <button (click)="nextPage()" [disabled]="currentPage === totalPages">&raquo;</button>
     </div>
 </div>

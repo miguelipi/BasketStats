@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef  } from '@angular/core';
-import { PartidoService } from '../../services/partido.service';
+import { PartidoService } from '../../services/partidoAleatorio.service';
 import { CommonModule } from '@angular/common';
 import { Chart } from 'chart.js/auto';
 

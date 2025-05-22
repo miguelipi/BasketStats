@@ -1,1 +1,37 @@
-<h1>Partidos</h1>
+<div class="container">
+
+    <div class="desplegables">
+        <select [(ngModel)]="selectedSeason" (change)="buscarPartidos()" id="season">
+            <option *ngFor="let season of seasons" [value]="season">
+                {{ season }}
+            </option>
+        </select>
+    </div>
+    <div class="partidos" *ngFor="let partido of partidosPaginados">
+        <div class="partido">
+            <a [routerLink]="['/partido']" [queryParams]="{ id: partido.id }" class="partido-link">
+                <div class="equipo1">
+                    <img [src]="partido.teams.home.logo || '/img/equipons.png'"
+                        alt="Logo {{ partido.teams.home.code }}" />
+                    <p>{{ partido.teams.home.code }}</p>
+                    <p><span>{{ partido.scores.home.points }}</span></p>
+                </div>
+                <div class="separador">
+                    <p>/</p>
+                </div>
+                <div class="equipo2">
+                    <img [src]="partido.teams.visitors.logo || '/img/equipons.png'"
+                        alt="Logo {{ partido.teams.visitors.code }}" />
+                    <p>{{ partido.teams.visitors.code }}</p>
+                    <p><span>{{ partido.scores.visitors.points }}</span></p>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="paginacion">
+        <button (click)="paginaAnterior()" [disabled]="paginaActual === 1">&laquo;</button>
+        <span>{{ paginaActual }} / {{ totalPaginas }}</span>
+        <button (click)="paginaSiguiente()" [disabled]="paginaActual === totalPaginas">&raquo;</button>
+    </div>
+
+</div>
