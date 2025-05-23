@@ -1,1 +1,29 @@
-<h1>Who Is?</h1>
+<div class="container">
+    <div class="juego">
+        <h2>Adivina el Jugador 🏀</h2>
+        <img [src]="juegoFinalizado ? imagenJugadorHD : imagenJugador"
+            [class.pixelado]="!juegoFinalizado" />
+        <div class="buscador">
+            <input type="text" [(ngModel)]="intento" (input)="actualizarSugerencias()" [disabled]="juegoFinalizado" />
+
+            <button (click)="verificarIntento()" [disabled]="juegoFinalizado">Intentar</button>
+
+        </div>
+        <ul *ngIf="sugerencias.length > 0" class="sugerencias">
+            <li *ngFor="let sugerencia of sugerencias" (click)="seleccionarSugerencia(sugerencia)">
+                {{ sugerencia }}
+            </li>
+        </ul>
+        <div class="pistas">
+            <h3>Pistas:</h3>
+            <ul>
+                <li *ngFor="let pista of pistasMostradas">{{ pista }}</li>
+            </ul>
+        </div>
+
+        <div *ngIf="mensajeResultado" class="resultado">
+            <p>{{ mensajeResultado }}</p>
+            <button (click)="reiniciarJuego()">Jugar otra vez</button>
+        </div>
+    </div>
+</div>

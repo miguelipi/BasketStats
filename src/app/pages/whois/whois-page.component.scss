@@ -1,0 +1,115 @@
+@use "../../../variables" as *;
+
+.container {
+    width: 50%;
+    margin: 0 auto;
+
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: $iconos;
+        text-align: center;
+    }
+
+    img {
+        display: block;
+        margin: 40px auto;
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+        object-position: top;
+        transform: scale(1);
+    }
+    
+    img.pixelado{
+        image-rendering: pixelated;
+        image-rendering: crisp-edges;
+    }
+
+    .buscador {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1rem;
+
+        input {
+            width: 60%;
+            padding: 0.5rem;
+            border: 1px solid $iconos;
+            border-radius: 4px;
+            font-size: 1rem;
+            margin-right: 0.5rem;
+        }
+
+        button {
+            background-color: $texto;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: $boton-hover;
+            }
+        }
+    }
+
+    .sugerencias {
+        list-style: none;
+        width: 60%;
+        padding: 0;
+        margin: 0 auto;
+        border: 1px solid $iconos;
+        border-radius: 4px;
+        max-height: 150px;
+        overflow-y: auto;
+    }
+
+    .sugerencias li {
+        padding: 0.5rem;
+        cursor: pointer;
+    }
+
+    .sugerencias li:hover {
+        background-color: $sombras;
+    }
+
+    .pistas {
+        margin-top: 40px;
+        margin-bottom: 40px;
+        h3 {
+            color: $iconos;
+            font-size: 1.5rem;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+                margin-bottom: 0.5rem;
+                font-size: 1.2rem;
+            }
+        }
+    }
+
+    .resultado {
+        margin: 40px 0;
+        text-align: center;
+
+        p {
+            font-size: 2rem;
+            color: $iconos;
+        }
+
+        button {
+            background-color: $texto;
+            color: white;
+            border-radius: 10px;
+            padding: 10px 20px;
+            border: 1px solid black;
+        }
+    }
+}
