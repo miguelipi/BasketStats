@@ -75,7 +75,7 @@ export class MainPageComponent implements OnInit {
       this.reboteChart = new Chart(this.reboteChartRef.nativeElement, {
         type: 'bar',
         data: {
-          labels: [this.equipoLocal.team.name, this.equipoVisitante.team.name],
+          labels: [this.equipoLocal.team.code, this.equipoVisitante.team.code],
           datasets: [{
             label: 'Rebotes Totales',
             data: [

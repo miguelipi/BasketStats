@@ -1,6 +1,6 @@
 <div class="container">
     <div class="equipo">
-        <img [src]="equipo.logo" alt="">
+        <img [src]="equipo.logo || '/img/equipons.png'" alt="">
         <div class="info">
             <p><span>NOMBRE</span> {{ equipo.name }}</p>
             <p><span>APODO</span> {{ equipo.nickname }}</p>
