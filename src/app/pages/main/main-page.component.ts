@@ -46,7 +46,6 @@ export class MainPageComponent implements OnInit {
   
           this.isLoading = false;
   
-          // Esperamos un poco para asegurarnos que el DOM está cargado
           setTimeout(() => this.generarGraficos(), 0);
         },
         error: (err) => {

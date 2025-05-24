@@ -149,7 +149,7 @@ export class WhoIsPageComponent {
             .then(searchData => {
                 const page = searchData?.query?.search?.[0];
                 if (!page) return { low: null, high: null };
-
+                
                 const title = page.title;
                 const lowResUrl = `https://en.wikipedia.org/w/api.php?action=query&prop=pageimages&titles=${encodeURIComponent(title)}&format=json&pithumbsize=32&origin=*`;
                 const highResUrl = `https://en.wikipedia.org/w/api.php?action=query&prop=pageimages&titles=${encodeURIComponent(title)}&format=json&pithumbsize=400&origin=*`;
