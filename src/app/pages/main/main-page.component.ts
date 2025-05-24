@@ -60,7 +60,7 @@ export class MainPageComponent implements OnInit {
       this.tripleChart = new Chart(this.tripleChartRef.nativeElement, {
         type: 'bar',
         data: {
-          labels: [this.equipoLocal.team.name, this.equipoVisitante.team.name],
+          labels: [this.equipoLocal.team.code, this.equipoVisitante.team.code],
           datasets: [{
             label: '% Triples',
             data: [
