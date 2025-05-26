@@ -26,7 +26,7 @@
   </div>
   <div class="jugadores">
     <div class="jugador" *ngFor="let jugador of jugadores" (click)="seleccionarJugador(jugador.id, jugador.image)">
-      <img [src]="jugador.image || '../../../assets/img/jugadorns.png'" alt="" />
+      <img [src]="jugador.image || 'assets/img/jugadorns.png'" alt="" />
       <p>{{ jugador.firstname }} {{jugador.lastname}}</p>
     </div>
   </div>
@@ -35,7 +35,7 @@
   <div class="modal" *ngIf="showModal" (click)="cerrarModal()">
     <div class="modal-content" (click)="$event.stopPropagation()">
       <div class="nombre">
-        <img [src]="jugadorSeleccionado?.image || '../../../assets/img/jugadorns.png'" alt="" />
+        <img [src]="jugadorSeleccionado?.image || 'assets/img/jugadorns.png'" alt="" />
         <h2>{{ jugadorSeleccionado?.firstname }} {{jugadorSeleccionado?.lastname}}</h2>
       </div>
       <div class="datos">

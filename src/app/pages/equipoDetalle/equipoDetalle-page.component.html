@@ -1,6 +1,6 @@
 <div class="container">
     <div class="equipo">
-        <img [src]="equipo.logo || '../../../assets/img/equipons.png'" alt="">
+        <img [src]="equipo.logo || 'assets/img/equipons.png'" alt="">
         <div class="info">
             <p><span>NOMBRE</span> {{ equipo.name }}</p>
             <p><span>APODO</span> {{ equipo.nickname }}</p>
@@ -53,7 +53,7 @@
             <div class="jugadores">
                 <div class="jugador" *ngFor="let jugador of jugadores"
                     (click)="seleccionarJugador(jugador.id, jugador.image)">
-                    <img [src]="jugador.image || '/img/jugadorns.png'" alt="" />
+                    <img [src]="jugador.image || 'assets/img/jugadorns.png'" alt="" />
                     <p>{{ jugador.firstname }} {{jugador.lastname}}</p>
                 </div>
             </div>
