@@ -1,7 +1,7 @@
 <div class="container">
     <div class="juego">
         <h2>Adivina el Jugador 🏀</h2>
-        <img [src]="juegoFinalizado ? imagenJugadorHD : imagenJugador || assets/img/jugadorns.png'" alt="Jugador"
+        <img [src]="juegoFinalizado ? imagenJugadorHD : imagenJugador || 'assets/img/jugadorns.png'" alt="Jugador"
             [class.pixelado]="!juegoFinalizado" />
         <div class="buscador">
             <input type="text" [(ngModel)]="intento" (input)="actualizarSugerencias()" [disabled]="juegoFinalizado" />
