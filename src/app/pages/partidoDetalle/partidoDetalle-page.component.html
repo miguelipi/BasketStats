@@ -1,7 +1,7 @@
 <div class="container"
     *ngIf="partido?.teams?.home && partido?.teams?.visitors && partido?.scores?.home && partido?.scores?.visitors">
     <div class="partido">
-        <img [src]="partido.teams.home.logo || '/img/equipons.png'" alt="">
+        <img [src]="partido.teams.home.logo || '../../../assets/img/equipons.png" alt="">
         <div class="info">
             <p class="local">{{ partido.teams.home.name }}</p>
             <div class="puntos">
@@ -10,7 +10,7 @@
             </div>
             <p class="visitante">{{ partido.teams.visitors.name }}</p>
         </div>
-        <img [src]="partido.teams.visitors.logo || '/img/equipons.png'" alt="">
+        <img [src]="partido.teams.visitors.logo || '../../../assets/img/equipons.png'" alt="">
     </div>
 
     <div class="graficos" *ngIf="graficosListos">
