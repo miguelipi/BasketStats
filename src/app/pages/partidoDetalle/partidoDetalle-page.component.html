@@ -1,7 +1,7 @@
 <div class="container"
     *ngIf="partido?.teams?.home && partido?.teams?.visitors && partido?.scores?.home && partido?.scores?.visitors">
     <div class="partido">
-        <img [src]="partido.teams.home.logo || 'assets/img/equipons.png" alt="">
+        <img [src]="partido.teams.home.logo || 'assets/img/equipons.png'" alt="">
         <div class="info">
             <p class="local">{{ partido.teams.home.name }}</p>
             <div class="puntos">
