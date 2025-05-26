@@ -9,7 +9,7 @@
     </div>
     <div class="partidos" *ngFor="let partido of partidosPaginados">
         <div class="partido">
-            <a [routerLink]="['/partido']" [queryParams]="{ id: partido.id }" class="partido-link">
+            <a [routerLink]="['/BasketStats/partido']" [queryParams]="{ id: partido.id }" class="partido-link">
                 <div class="equipo1">
                     <img [src]="partido.teams.home.logo || 'assets/img/equipons.png'"
                         alt="Logo {{ partido.teams.home.code }}" />
