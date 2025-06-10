@@ -53,8 +53,6 @@ export class PartidoDetallePageComponent implements AfterViewInit {
             this.partidoDetalleService.getPartidoStats(this.partidoId).subscribe(data => {
                 this.equipo1 = data.response[0];
                 this.equipo2 = data.response[1];
-                this.datosListos = true;
-                this.checkGraficos();
             });
 
             this.partidoDetalleService.getPartido(this.partidoId).subscribe(data => {
@@ -71,16 +69,11 @@ export class PartidoDetallePageComponent implements AfterViewInit {
     checkGraficos(): void {
     if (this.datosListos && this.viewIniciada) {
         this.graficosListos = true;
-        this.cdr.detectChanges(); // asegura que Angular actualice la vista
+        this.cdr.detectChanges();
 
         setTimeout(() => {
-            // Añade esta verificación
-            if (this.tripleChartRef?.nativeElement) {
-                this.generarGraficos();
-            } else {
-                console.warn('Elementos de gráfico aún no están disponibles');
-            }
-        }, 100); // usa un pequeño delay para esperar el renderizado completo
+            this.generarGraficos(); 
+        }, 100);
     }
 }
 
