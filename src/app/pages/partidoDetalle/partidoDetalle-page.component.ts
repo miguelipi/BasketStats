@@ -69,15 +69,20 @@ export class PartidoDetallePageComponent implements AfterViewInit {
     }
 
     checkGraficos(): void {
-        if (this.datosListos && this.viewIniciada) {
-            this.graficosListos = true;
-            this.cdr.detectChanges();
+    if (this.datosListos && this.viewIniciada) {
+        this.graficosListos = true;
+        this.cdr.detectChanges(); // asegura que Angular actualice la vista
 
-            setTimeout(() => {
+        setTimeout(() => {
+            // Añade esta verificación
+            if (this.tripleChartRef?.nativeElement) {
                 this.generarGraficos();
-            }, 0);
-        }
+            } else {
+                console.warn('Elementos de gráfico aún no están disponibles');
+            }
+        }, 100); // usa un pequeño delay para esperar el renderizado completo
     }
+}
 
     generarGraficos() {
 
